@@ -3,16 +3,14 @@ class Solution {
         int left = 0;
         int right = nums.length - 1;
         int[] result = new int[nums.length];
-        int index = nums.length - 1;
-        while (left <= right) {
-            if (nums[right] * nums[right] >= nums[left] * nums[left]) {
+        for (int index = result.length -1; index >= 0; index--) {
+            if (Math.abs(nums[right]) >= Math.abs(nums[left])) {
                 result[index] = nums[right] * nums[right];
                 right--;
             } else {
                 result[index] = nums[left] * nums[left];
                 left++;
             }
-            index--;
         }
         return result;
     }
