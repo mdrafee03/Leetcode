@@ -1,17 +1,23 @@
 class Solution {
     public void moveZeroes(int[] nums) {
-        int l = 0;
-        for (int r = 0; r < nums.length; r++) {
-            if (nums[r] != 0) {
-                swap(nums, l, r);
-                l++;
-            }            
+        if(nums==null || nums.length==0) return;
+        int left=0;
+        int right=0;
+        while(right<nums.length){
+            if(nums[right]==0){
+                ++right;
+                
+            }
+            else{
+                int temp=nums[left];
+                nums[left]=nums[right];
+                nums[right]=temp;
+                ++right;
+                ++left;
+                
+            }
+            
         }
-    }
-    public int[] swap(int[] nums, int pos1, int pos2) {
-        int temp = nums[pos1];
-        nums[pos1] = nums[pos2];
-        nums[pos2] = temp;
-        return nums;
+        return;
     }
 }
