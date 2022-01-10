@@ -1,10 +1,17 @@
 class Solution {
     public void moveZeroes(int[] nums) {
-        if(nums==null || nums.length==0) return;
-        int insertPos = 0;
-        for (int num: nums) {
-            if (num != 0) nums[insertPos++] = num;
+        int l = 0;
+        for (int r = 0; r < nums.length; r++) {
+            if (nums[r] != 0) {
+                swap(nums, l, r);
+                l++;
+            }            
         }
-        while(insertPos < nums.length) nums[insertPos++] = 0;
+    }
+    public int[] swap(int[] nums, int pos1, int pos2) {
+        int temp = nums[pos1];
+        nums[pos1] = nums[pos2];
+        nums[pos2] = temp;
+        return nums;
     }
 }
