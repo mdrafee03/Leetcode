@@ -9,7 +9,6 @@ class Solution {
         }
     }
     public int[] swap(int[] nums, int pos1, int pos2) {
-        if (pos1 == pos2) return nums;
         int temp = nums[pos1];
         nums[pos1] = nums[pos2];
         nums[pos2] = temp;
