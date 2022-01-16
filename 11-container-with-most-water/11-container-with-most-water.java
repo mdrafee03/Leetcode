@@ -4,11 +4,12 @@ class Solution {
         int i = 0;
         int j = height.length - 1;
         while(i < j) {
-            water = Math.max(water, (j-i) * Math.min(height[i], height[j]));
+            int minHeight = Math.min(height[i], height[j]);
+            water = Math.max(water, (j-i) * minHeight);
             if (height[i] < height[j]) {
-                i++;
+                while(i < j && height[i] <= minHeight) i++;
             } else {
-                j--;
+                while(j > i && height[j] <= minHeight) j--;
             }
         }
         return water;
