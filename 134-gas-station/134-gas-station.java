@@ -11,6 +11,7 @@ class Solution {
                 ValidStart = i+1;
             }
         }
-        return sumDeviation >= 0 ? ValidStart : -1;
+        if (sumDeviation >= 0) return ValidStart;
+        return -1;
     }
 }
