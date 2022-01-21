@@ -6,12 +6,11 @@ class Solution {
         for (int i = 0; i < gas.length; i++) {
             sumDeviation += gas[i] - cost[i];
             cumDeviation += gas[i] - cost[i];
-            if (cumDeviation < 0 && i+1 < gas.length) {
+            if (cumDeviation < 0) {
                 cumDeviation = 0;
                 ValidStart = i+1;
             }
         }
-        if (sumDeviation >= 0) return ValidStart;
-        return -1;
+        return sumDeviation >= 0 ? ValidStart : -1;
     }
 }
